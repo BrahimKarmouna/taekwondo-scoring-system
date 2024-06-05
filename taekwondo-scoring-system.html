@@ -1,0 +1,1443 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- ... other head elements ... -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+        <!-- ... other head elements ... -->
+    </head>
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taekwondo scoring system</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            display: flex;
+            height: 830px;
+        }
+
+        .red {
+            width: 43%;
+            background-color: rgb(117, 4, 4);
+            
+            
+        }
+
+        .blue {
+            width: 45%;
+            background-color: rgb(2, 2, 49);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+        }
+
+        .black {
+            width: 11%;
+            background-color: black;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            height: 741px;
+        }
+
+        .cn {
+            background-color: yellow;
+            text-align: center;
+            margin-top: 15px;
+            width: 100%;
+            height: 80px;
+            position: relative;
+            cursor: pointer;
+        }
+
+        #counter {
+            color: black;
+            font-size: 3em;
+            font-weight: bold;
+        }
+
+        #seconds-buttons {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        #seconds-buttons .button {
+            padding: 10px;
+            font-size: 1.5em;
+            cursor: pointer;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin: 0 5px;
+            background-color: #333;
+        }
+
+        .match {
+            color: aliceblue;
+            font-size: 2.6em;
+        }
+
+        .round {
+            font-size: 1.6rem;
+            font-family: 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+            color: white;
+        }
+
+        .Mnumber {
+            color: white;
+            font-size: 40px;
+        }
+
+        .red-player,
+        .blue-player-score {
+            margin-top: 149px;
+            width: 380px;
+/* rah hadi li lteht b l vh  */
+            height: 392px;  
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgb(3, 3, 125);
+            margin-left: 0px;
+            font-size: 10em;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            color: white;
+        }
+
+        .red-player-score {
+            background-color: rgb(196, 5, 5);
+            width: 400px;
+            
+            width: 580px;
+            height: 392px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10em;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            color: white;
+        }
+
+        .colors {
+            display: flex;
+        }
+
+        .ahmarani {
+            width: 50%;
+            background-color: rgb(117, 4, 4);
+            height: 169px;
+        }
+
+        .azra9ani {
+            height: 169px;
+            width: 50%;
+            background-color: rgb(2, 2, 49);
+        }
+
+        .gamjumBlue {
+            margin-left: 140px;
+           
+            font-size: 1.5em;
+        }
+
+        .gamjumRed {
+            margin-left: 400px;
+          
+            font-size: 1.5em;
+        }
+
+        .gamScoreRED {
+            margin-left: 450px;
+            margin-top: 8px;
+            font-size: 3em;
+            color: white;
+        }
+
+        .gamScoreRed {
+            margin-top: 8px;
+            font-size: 3em;
+            margin-left: 220px;
+            color: white;
+        }
+        .gamScoreRED2{
+            margin-top: 8px;
+            font-size: 3em;
+            margin-left: 185px;
+            color: white;
+        }
+
+        /* New styles for buttons */
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+        .button {
+            padding: 10px;
+            font-size: 2em;
+            cursor: pointer;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin-left: 10px;
+        }
+        .button2{
+            padding: 10px;
+            font-size: 2em;
+            cursor: pointer;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin-left: 10px;
+        }
+
+        .button:hover {
+            background-color: #555;
+        }
+
+        .button-gamjum {
+            display: flex;
+            justify-content: space-between;
+            margin-left: 430px;
+        }
+
+        .button2 {
+            color: white;
+        }
+
+        .buttonn:hover {
+            background-color: #555;
+        }
+
+        .buttonn {
+            display: flex;
+            font-size: 2em;
+            cursor: pointer;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin-left: 20px;
+            padding: 10px;
+            font-size: 2em;
+            cursor: pointer;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .button-gamjumRedd {
+            display: flex;
+            margin-left: 175px;
+        }
+
+        .buttons {
+            /* background-color: green; */
+        }
+
+        .btn {
+            display: inline-block;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: transparent;
+            text-align: center;
+            text-decoration: none;
+            color: rgb(255, 255, 255);
+            font-size: 19px;
+            line-height: 50px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btnround {
+            margin-top: 5px;
+            font-size: 2em;
+            cursor: pointer;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin-left: 10px;
+            background-color: black;
+        }
+
+        /* css for the buttons and controlling the blue side */
+        .fbtn {
+            display: inline-block;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: transparent;
+            text-align: center;
+            text-decoration: none;
+            color: rgb(255, 255, 255);
+            font-size: 19px;
+            line-height: 50px;
+            /* cursor: pointer; */
+            /* transition: background-color 0.3s ease; */
+        }
+        .ssbtn{
+            display: inline-block;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: transparent;
+            text-align: center;
+            text-decoration: none;
+            color: rgb(255, 255, 255);
+            font-size: 19px;
+            line-height: 50px;
+        }
+
+        .container {
+            display: flex;
+        }
+
+        .first-buttons {
+            margin-top: 130px;
+            padding-left: 110px;
+        }
+
+        .whichDiv {
+            margin-bottom: 19px;
+            font-size: 32px;
+        }
+        .button-gamjum2{
+            display: flex;
+           
+            margin-left: 150px;
+        }
+        .flagred{
+            margin-left: 100px;
+            margin-top: 30px;
+        }
+        .flagredblue{
+margin-left: 300px;
+        }
+
+        #winner-announcement {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 170vh; /* Set the width to 90% of the viewport width */
+    height: 90vh; /* Set the height to 90% of the viewport height */
+    max-width: 1800px; /* Set a maximum width for better readability */
+    max-height: 1600px; /* Set a maximum height for better readability */
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 999;
+    padding: 20px;
+    box-sizing: border-box; /* Include padding in the width calculation */
+    text-align: center;
+}
+
+#winner-text {
+    color: white;
+    font-size: 7em;
+    text-align: center;
+}
+
+
+.button911 {
+    padding-top: 8;
+    width: 70px;
+    height: 70px;
+    border: 2px solid black;
+    border-radius: 50%; /* Makes the button circular */
+    background-color: transparent;
+    color: rgb(255, 241, 241);
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* .button-container {
+    text-align: center;
+    margin-top: 20px;
+} */
+
+#cancel-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+#cancel-icon i {
+    color: white;
+    font-size: 24px;
+}
+.button911:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Light gray with some transparency on hover */
+}
+
+/* Additional styles for better aesthetics */
+
+
+/* Additional styles for better aesthetics */
+
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border: 2px solid black;
+}
+
+.popup-content {
+    text-align: center;
+}
+
+.popup-content span {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+    </style>
+</head>
+
+<body style="background-color: rgb(2, 2, 49); width: 100%;" >
+
+    <div class="container">
+        
+        <!-- Red Side -->
+        <div class="red" style="height: 890px;">
+            <div style="display: flex;"><img src="morocco.png" style="width: 120px; height: 83px; border-radius: 3px;  margin-left: 175px; margin-top: 29px;" alt="" srcset=""> </div>
+            
+
+                
+                <br>
+                <h1 style="color: white; font-family: Verdana, sans-serif; margin: 0; margin-left: 190px;">MAR</h1>            
+
+              
+            <!-- to manupilate the red squere  from that margin top -->
+            <div class="secontainer" style="display: flex; margin-bottom: 40px; margin-top: 0PX; ">
+                <div class="first-buttons" style="margin-top: px;" >
+                    <button class="fbtn" onclick="addToRedPlayer(3)"> <img style="width: 62px;" src="helmet.png" alt="" srcset=""></button>
+                    <button style="margin-left: 8px;" class="fbtn" onclick="addToRedPlayer(2)"> <img style="width: 65px;" src="redProtector.png" alt="" srcset=""> </button>
+                    <button class="fbtn" onclick="addToRedPlayer(-1)"> -</button>
+                    <button style="margin-top: 30px; margin-left: 13px; margin-bottom: 60px;" class="ssbtn" onclick="addToRedPlayer(1)"> <img style="width: 62px;" src="punch.png" alt="" srcset=""></button>
+                  <div class="gamjumBlue" style="color: white;  margin-left: 0px;">GAM-JEOM</div>
+    <div class="gamScoreRED2" style="color: white;margin-left: 40px;" >0</div>
+    <div class="button-gamjum2"  style=" margin-left: 10px;" >
+        <div class="button2" onclick="decrementScore('gamScoreRED2')">-</div>
+        <div class="button2" onclick="incrementScore('gamScoreRED2')">+</div>
+    </div> </div>
+                <div class="red-player-score" onclick="decrementScore('red-player')">
+                    <div class="redScore">0</div>
+                </div>
+        
+
+            </div>
+          <!-- GAM JUM FOR RED SIDE -->
+ 
+
+              <!-- red side -->
+
+
+        </div>
+
+        <!-- Black Center -->
+        <div class="black" >
+            <div class="colors" style="width: 100%; color: white; ">
+                <div class="ahmarani" style="color:rgb(117, 4, 53);"></div>
+                <div class="azra9ani" style="color: rgb(2, 2, 49);"></div>
+            </div>
+            <div class="button-container">
+                <div class="button" onclick="decrementNumber()">-</div>
+                <div class="button" onclick="incrementNumber()">+</div>
+            </div>
+            <div class="match" style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">MATCH
+            </div>
+            <div class="Mnumber" id="number">1</div>
+            <div class="cn" id="counter" onclick="toggleTimer()">2:00</div>
+            <div class="button-container" >
+                <button class="btnround" onclick="decrementCountdown()">-</button>
+                <button class="btnround" onclick="incrementCountdown()">+</button>
+            </div>
+            <div style="margin-bottom: 12px;" class="round">ROUND</div>
+            <div style="color: white;" class="whichDiv" id="roundNumber">1</div>
+<div class="coontaiiner"  style="display: flex;" >  
+    <div  style="color: rgb(117, 4, 4); width: 88px; background-color: rgb(117, 4, 4); margin-left: 0px; height: 330px;" > </div>
+     <div style="color:rgb(2, 2, 49); width: 84px; background-color: rgb(2, 2, 49); height: 270px;" ></div> </div>
+           
+        </div>
+        
+
+        <!-- Blue Side -->
+        <div class="blue" style="height: 300px;">
+           
+            <!-- to control gamjum and buttuns in the right side  change the margin top -->
+            <div class="container" style="height: 700px;">
+              
+                <div class="blue-player-score"   style="margin-top: 170px; width: 450px; " >
+
+                    <div class="blueScore">0</div>
+                </div>
+                
+                    
+                <div  class="buttons" style="width: 50%; margin-right: 90px;  " >
+                    <img src="morocco.png" style="width: 120px; height: 83px ; border-radius: 3px; padding-top: 29px;" alt="" srcset="">
+                    <br>
+                    <h1 style="color: white; font-family: Verdana, sans-serif; margin: 0; margin-left: 16px;">MAR</h1>
+                    <button onclick="addToBluePlayer(2)" style="margin-top: 150px; margin-left: 40px; margin-right: 18px;" class="btn">  <img style="width: 62px;" src="blueProtector.png" alt="" srcset="">
+                    </button>
+                    <button style="margin-right: 20px;" class="btn" onclick="addToBluePlayer(3)"><img style="width: 62px;" src="helmetBLUE.png" alt="" srcset=""> </button>
+                    <button class="btn" onclick="addToBluePlayer(1) " style="margin-left: 40px; margin-top: 12px;"><img style="width: 62px;" src="punch.png" alt="" srcset=""></button>
+                    <button style=" margin-left: 18px;" class="btn" onclick="addToBluePlayer(-1)"> -</button>
+                </div>
+            </div>
+            
+            <div class="gamjumRed" style="color: white;">GAM-JEOM</div>
+            <div class="gamScoreRED" style="color: white;">0</div>
+            <div class="button-gamjum">
+                <div class="button" onclick="decrementScore('gamScoreRED')">-</div>
+                <div class="button" onclick="incrementScore('gamScoreRED')">+</div>
+            </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="winner-announcement" style="display: none;">
+        <div id="winner-text">Winner announcement text goes here!</div>
+        <div class="button-container">
+            <!-- <button class="button911" onclick="nextRound()">Next Round</button> -->
+        
+        </div>
+        <div id="cancel-icon" onclick="closeWinnerPopup()">
+            <i class="fas fa-times"></i>
+        </div>
+    </div>
+    
+    <!-- <h1>powred by brahim karmouna</h1> -->
+    
+
+
+    <div id="winner-popup" class="popup">
+    <div class="popup-content">
+        <span id="winner-message"></span>
+    </div>
+</div>
+
+<script>
+
+document.querySelector('.red-player-score').addEventListener('click', function () {
+    decrementScore('red-player');
+});
+
+function decrementScore(className) {
+    const scoreElement = document.querySelector(`.${className}`);
+    let score = parseInt(scoreElement.textContent) || 0;
+    if (score > 0) {
+        score--;
+        scoreElement.textContent = score;
+    }
+
+    // Check for score difference after decrementing
+    checkScoreDifference();
+}
+    // Function to check the score difference and determine the winner
+
+
+
+// Timer related functions
+let initialTime = 120; // Set initial time to 2 minutes (120 seconds)
+  let paused = true;
+  let intervalId;
+  const counterElement = document.getElementById('counter');
+  const secondsButtonsContainer = document.getElementById('seconds-buttons');
+  let pausedAt = Date.now(); // Initialize pausedAt with the current time
+
+  // Function to update the timer counter
+  // Function to update the timer counter
+// Add a variable to keep track of whether the countdown is manually paused
+let manuallyPaused = true;
+
+
+
+// Function to manually pause the countdown
+function pauseCountdown() {
+    manuallyPaused = true;
+    clearInterval(intervalId);
+    showHideSecondsButtons(true); // Show the buttons when paused
+}
+
+// Function to manually resume the countdown
+// function resumeCountdown() {
+//     manuallyPaused = false;
+//     paused = false;
+//     pausedAt = Date.now();
+//     showHideSecondsButtons(false); // Hide the buttons when resumed
+// }
+
+
+  // Function to toggle the timer
+  function toggleTimer() {
+    if (paused) {
+        pausedAt = Date.now();
+        intervalId = setInterval(updateCounter, 1000);
+    } else {
+        clearInterval(intervalId);
+        // Calculate the time elapsed since the timer was paused
+        const currentTime = Date.now();
+        const elapsedSeconds = Math.floor((currentTime - pausedAt) / 1000);
+        initialTime -= elapsedSeconds;
+    }
+
+    paused = !paused;
+}
+
+  
+
+// Function to show/hide the seconds buttons
+function showHideSecondsButtons(show) {
+    secondsButtonsContainer.style.display = show ? 'flex' : 'none';
+}
+
+// Round-related functions
+// Define the initial round number
+let currentRound = 1;
+
+// Function to increment the round number
+function incrementRound() {
+    currentRound++;
+    document.getElementById('roundNumber').textContent = currentRound;
+}
+
+// Function to decrement the round number
+function decrementRound() {
+    if (currentRound > 1) {
+        currentRound--;
+        document.getElementById('roundNumber').textContent = currentRound;
+    }
+}
+
+
+// Function to increment the number
+function incrementNumber() {
+    const numberElement = document.getElementById('number');
+    let number = parseInt(numberElement.textContent) || 0;
+    number++;
+    numberElement.textContent = number;
+}
+
+// Functions related to red player
+function addToRedPlayer(value) {
+            const redPlayerElement = document.querySelector('.red-player-score');
+            let redPlayerScore = parseInt(redPlayerElement.textContent) || 0;
+            redPlayerScore += value;
+            redPlayerElement.textContent = redPlayerScore;
+
+            // Check for score difference after updating red player score
+            checkScoreDifference();
+}
+
+function incrementScore(scoreClassName) {
+        const scoreElement = document.querySelector(`.${scoreClassName}`);
+        let score = parseInt(scoreElement.textContent) || 0;
+        score++;
+        scoreElement.textContent = score;
+
+        // Check for score difference after incrementing
+        checkScoreDifference();
+    }
+
+    // Function to decrement the score
+    function decrementScore(scoreClassName) {
+        const scoreElement = document.querySelector(`.${scoreClassName}`);
+        let score = parseInt(scoreElement.textContent) || 0;
+        if (score > 0) {
+            score--;
+            scoreElement.textContent = score;
+        }
+
+        // Check for score difference after decrementing
+        checkScoreDifference();
+    }
+
+
+// Functions related to blue player
+
+
+document.querySelector('.red-player-score').addEventListener('click', function () {
+    decrementScore('red-player');
+});
+
+// Functions related to red player
+function addToRedPlayer(value) {
+    const redPlayerElement = document.querySelector('.red-player-score');
+    let redPlayerScore = parseInt(redPlayerElement.textContent) || 0;
+    redPlayerScore += value;
+    redPlayerElement.textContent = redPlayerScore;
+
+    // Check for score difference after updating red player score
+    checkScoreDifference();
+}
+
+// Functions related to blue player
+function addToBluePlayer(value) {
+    const bluePlayerElement = document.querySelector('.blue-player-score');
+    let bluePlayerScore = parseInt(bluePlayerElement.textContent) || 0;
+    bluePlayerScore += value;
+    bluePlayerElement.textContent = bluePlayerScore;
+
+    // Check for score difference after updating blue player score
+    checkScoreDifference();
+}
+
+
+
+
+
+
+// Function to check the score difference and determine the winner
+
+
+
+document.querySelector('.red-player-score').addEventListener('click', function () {
+    decrementScore('red-player');
+});
+
+// Functions related to red player
+function addToRedPlayer(value) {
+    const redPlayerElement = document.querySelector('.red-player-score');
+    let redPlayerScore = parseInt(redPlayerElement.textContent) || 0;
+    redPlayerScore += value;
+    redPlayerElement.textContent = redPlayerScore;
+
+    // Check for score difference after updating red player score
+    checkScoreDifference();
+}
+
+// Functions related to blue player
+function addToBluePlayer(value) {
+    const bluePlayerElement = document.querySelector('.blue-player-score');
+    let bluePlayerScore = parseInt(bluePlayerElement.textContent) || 0;
+    bluePlayerScore += value;
+    bluePlayerElement.textContent = bluePlayerScore;
+
+    // Check for score difference after updating blue player score
+    checkScoreDifference();
+}
+
+// Function to check the score difference and determine the winner
+function checkScoreDifference() {
+    const scoreRed = parseInt(document.querySelector('.red-player-score').textContent) || 0;
+    const scoreBlue = parseInt(document.querySelector('.blue-player-score').textContent) || 0;
+
+    const scoreDifference = Math.abs(scoreRed - scoreBlue);
+
+    if (scoreDifference >= 12) {
+        const winner = scoreRed > scoreBlue ? "red" : "blue";
+
+        const winnerAnnouncement = document.getElementById('winner-announcement');
+        const winnerTextElement = document.getElementById('winner-text');
+        winnerTextElement.textContent = `${winner} wins by 12 points difference!`;
+
+        const backgroundColor = winner === "red" ? 'red' : 'blue';
+        winnerAnnouncement.style.backgroundColor = backgroundColor;
+
+        winnerAnnouncement.style.display = 'flex';
+
+        clearInterval(intervalId);
+
+        // Switch to 30-second phase
+        initialTime = 60;
+        pausedAt = Date.now();
+        intervalId = setInterval(updateCounter, 1000);
+
+        // Reset scores and gamjum counts to 0 after 30 seconds
+        setTimeout(() => {
+            document.querySelector('.red-player-score').textContent = 0;
+            document.querySelector('.blue-player-score').textContent = 0;
+            document.querySelector('.gamScoreRED').textContent = 0;
+            document.querySelector('.gamScoreRED2').textContent = 0;
+        }, 30000); // 30000 milliseconds (30 seconds)
+    }
+}
+
+
+// function checkScoreDifference() {
+//     const scoreRed = parseInt(document.querySelector('.red-player-score').textContent) || 0;
+//     const scoreBlue = parseInt(document.querySelector('.blue-player-score').textContent) || 0;
+
+//     const scoreDifference = Math.abs(scoreRed - scoreBlue);
+
+//     if (scoreDifference >= 12) {
+//         const winner = scoreRed > scoreBlue ? "red" : "blue";
+
+//         const winnerAnnouncement = document.getElementById('winner-announcement');
+//         const winnerTextElement = document.getElementById('winner-text');
+//         winnerTextElement.textContent = `${winner} wins by 12 points difference!`;
+
+//         const backgroundColor = winner === "red" ? 'red' : 'blue';
+//         winnerAnnouncement.style.backgroundColor = backgroundColor;
+
+//         winnerAnnouncement.style.display = 'flex';
+
+//         clearInterval(intervalId);
+
+//         // Switch to 30-second phase
+//         initialTime = 60;
+//         pausedAt = Date.now();
+//         intervalId = setInterval(updateCounter, 1000);
+
+//         // Reset scores and gamjum counts to 0 after 30 seconds
+//         setTimeout(() => {
+//             document.querySelector('.red-player-score').textContent = 0;
+//             document.querySelector('.blue-player-score').textContent = 0;
+//             document.querySelector('.gamScoreRED').textContent = 0;
+//             document.querySelector('.gamScoreRED2').textContent = 0;
+//         }, 30000); // 30000 milliseconds (30 seconds)
+//     }
+// }
+
+// // Determine the winner based on the score difference
+// let winner;
+// if (Math.abs(scoreRed - scoreBlue) > 12) {
+//     winner = scoreRed > scoreBlue ? "red" : "blue";
+
+//     // Display winner announcement
+//     const winnerAnnouncement = document.getElementById('winner-announcement');
+//     const winnerTextElement = document.getElementById('winner-text');
+//     winnerTextElement.textContent = `${winner} winner!`;
+
+//     // Set the background color based on the winner
+//     const backgroundColor = winner === "red" ? 'red' : 'blue';
+//     winnerAnnouncement.style.backgroundColor = backgroundColor;
+
+//     // Show the announcement
+//     winnerAnnouncement.style.display = 'flex';
+
+//     // Stop the countdown
+//     clearInterval(intervalId);
+// }
+
+
+function closeWinnerPopup() {
+    const winnerAnnouncement = document.getElementById('winner-announcement');
+    winnerAnnouncement.style.display = 'none';
+}
+
+function updateCounter() {
+    const counterElement = document.getElementById('counter');
+
+    if (!paused) {
+        const currentTime = Date.now();
+        const elapsedSeconds = Math.floor((currentTime - pausedAt) / 1000);
+        let remainingTime = initialTime - elapsedSeconds;
+
+        if (remainingTime <= 0) {
+            // Switch between 30 seconds and 2 minutes
+            initialTime = (initialTime === 120) ? 60 : 120;
+
+            // Increment the round score when 30 seconds end
+            if (initialTime === 60) {
+                incrementRoundScore();
+            }
+
+            // Restart the countdown
+            pausedAt = Date.now();
+
+            // Reset scores and gamjum counts to 0 after 30 seconds
+            setTimeout(() => {
+                document.querySelector('.red-player-score').textContent = 0;
+                document.querySelector('.blue-player-score').textContent = 0;
+                document.querySelector('.gamScoreRED').textContent = 0;
+                document.querySelector('.gamScoreRED2').textContent = 0;
+            }, 30000); // 30000 milliseconds (30 seconds)
+        } else {
+            const minutes = Math.floor(remainingTime / 60);
+            const seconds = remainingTime % 60;
+
+            // Apply styles based on initial time
+            if (initialTime === 120) {
+                counterElement.style.color = 'black';
+                counterElement.style.backgroundColor = 'yellow';
+            } else {
+                counterElement.style.color = 'white';
+                counterElement.style.backgroundColor = 'black';
+            }
+
+            const formattedTime = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+            counterElement.textContent = formattedTime;
+
+            // Pause the countdown when it reaches exactly 2:00 remaining time
+            if (minutes === 2 && seconds === 0) {
+                paused = true;
+                clearInterval(intervalId);
+            }
+        }
+    } else {
+        // Apply styles for paused state
+        counterElement.style.color = 'white';
+        counterElement.style.backgroundColor = 'black';
+    }
+}
+
+
+function incrementRoundScore() {
+    const roundNumberElement = document.getElementById('roundNumber');
+    currentRound++;
+    roundNumberElement.textContent = currentRound;
+}
+
+// Define the initial match number
+let currentMatchNumber = 1;
+
+// Function to increment the match number
+function incrementMatchNumber() {
+    currentMatchNumber++;
+    document.getElementById('number').textContent = currentMatchNumber;
+}
+
+// Function to decrement the match number
+function decrementMatchNumber() {
+    if (currentMatchNumber > 1) {
+        currentMatchNumber--;
+        document.getElementById('number').textContent = currentMatchNumber;
+    }
+}
+// Function to update the scores
+// Function to update the scores
+function updateScore(scoreClassName, increment) {
+    const scoreElement = document.querySelector(`.${scoreClassName}`);
+    let score = parseInt(scoreElement.textContent) || 0;
+
+    // Update the score
+    score += increment;
+    scoreElement.textContent = score;
+
+    // Update the respective player's score if it's a gamjum and the score is not 0
+    if (scoreClassName === 'gamScoreRED' && score !== 0) {
+        // Update the red player's score
+        const redPlayerElement = document.querySelector('.red-player-score .redScore');
+        let redPlayerScore = parseInt(redPlayerElement.textContent) || 0;
+        redPlayerScore += increment;
+        redPlayerElement.textContent = redPlayerScore;
+
+        // Update the blue player's score
+        const bluePlayerElement = document.querySelector('.blue-player-score .blueScore');
+        let bluePlayerScore = parseInt(bluePlayerElement.textContent) || 0;
+        bluePlayerScore += increment;
+        bluePlayerElement.textContent = bluePlayerScore;
+    }
+}
+
+// Function to increment the score
+function incrementScore(scoreClassName) {
+    updateScore(scoreClassName, 1);
+}
+
+// Function to decrement the score
+function decrementScore(scoreClassName) {
+    updateScore(scoreClassName, -1);
+}
+//nb
+// Function to decrement the countdown timer
+function decrementCountdown() {
+    if (initialTime > 0) {
+        initialTime--; // Decrease timer by 1 second
+        updateCounter(); // Update the counter immediately
+    }
+}
+
+// Function to increment the countdown timer
+function incrementCountdown() {
+    initialTime++; // Increase timer by 1 second
+    updateCounter(); // Update the counter immediately
+}
+
+
+// Function to decrement the countdown timer
+function decrementCountdown() {
+    if (paused) {
+        const currentTime = Date.now();
+        const elapsedSeconds = Math.floor((currentTime - pausedAt) / 1000);
+        initialTime -= elapsedSeconds;
+        updateCounter(); // Update the counter immediately
+    } else {
+        initialTime--; // Decrease timer by 1 second
+        updateCounter(); // Update the counter immediately
+    }
+}
+
+// Function to increment the countdown timer
+function incrementCountdown() {
+    if (paused) {
+        const currentTime = Date.now<=120();
+        const elapsedSeconds = Math.floor((currentTime - pausedAt) / 1000);
+        initialTime += elapsedSeconds;
+        updateCounter(); // Update the counter immediately
+
+        
+    } else {
+        initialTime++; // Increase timer by 1 second
+        updateCounter(); // Update the counter immediately
+    }
+}
+
+
+// nnn
+
+// Define variables to track the number of rounds won by each player
+let redRoundsWon = 0;
+let blueRoundsWon = 0;
+
+// Function to update the rounds won by each player and check for the winner
+function updateRoundWinner(winner) {
+    if (winner === 'red') {
+        redRoundsWon++;
+    } else if (winner === 'blue') {
+        blueRoundsWon++;
+    }
+
+    // Check if any player has won two rounds
+    if (redRoundsWon === 2 || blueRoundsWon === 2) {
+        // Determine the winner
+        let gameWinner = redRoundsWon === 2 ? 'Red' : 'Blue';
+
+        // Display the winner alert
+        alert(`${gameWinner} wins the game!`);
+
+        // Reset round counters for the next game
+        redRoundsWon = 0;
+        blueRoundsWon = 0;
+    }
+}
+
+
+
+
+//ggg
+// Function to increment the score for the red player
+function incrementScore(scoreClassName) {
+    // Update the score for the red player
+    updateScore(scoreClassName, 1);
+}
+
+// Function to decrement the score for the red player
+function decrementScore(scoreClassName) {
+    // Ensure the score doesn't go below 0
+    const scoreElement = document.querySelector(`.${scoreClassName}`);
+    let score = parseInt(scoreElement.textContent) || 0;
+    if (score > 0) {
+        updateScore(scoreClassName, -1);
+    }
+}
+
+// Function to update the scores
+function updateScore(scoreClassName, increment) {
+    const scoreElement = document.querySelector(`.${scoreClassName}`);
+    let score = parseInt(scoreElement.textContent) || 0;
+
+    // Check if the score is for gamjum
+    const isGamjum = scoreClassName.includes('gamScoreRED');
+
+    // Update the score
+    score += increment;
+    scoreElement.textContent = score;
+
+    // Update the respective player's score if it's a gamjum
+    if (isGamjum) {
+        const redPlayerElement = document.querySelector('.red-player-score .redScore');
+        let redPlayerScore = parseInt(redPlayerElement.textContent) || 0;
+        redPlayerScore += increment;
+        redPlayerElement.textContent = redPlayerScore;
+        // Check if the red player wins when the score reaches 5
+        if (score === 5) {
+            displayWinnerPopup('red');
+        }
+    } else {
+        // This is for the blue player
+        const bluePlayerElement = document.querySelector('.blue-player-score .blueScore');
+        let bluePlayerScore = parseInt(bluePlayerElement.textContent) || 0;
+        bluePlayerScore += increment;
+        bluePlayerElement.textContent = bluePlayerScore;
+        // Check if the blue player wins when the score reaches 5
+        if (score === 5) {
+            displayWinnerPopup('blue');
+        }
+    }
+
+    // Check for score difference after updating scores
+    checkScoreDifference();
+}
+
+// Function to display winner popup
+function displayWinnerPopup(winner) {
+    const winnerAnnouncement = document.getElementById('winner-announcement');
+    const winnerTextElement = document.getElementById('winner-text');
+    winnerTextElement.textContent = `${winner.toUpperCase()} WINS BY GAMJUMS!`;
+
+    // Set background color based on the winner
+    const backgroundColor = winner === 'red' ? 'blue' : 'blue';
+    
+    winnerAnnouncement.style.backgroundColor = backgroundColor;
+
+    // Show the winner announcement
+    winnerAnnouncement.style.display = 'flex';
+
+    // Stop the countdown
+    clearInterval(intervalId);
+}
+
+
+
+
+// Function to display winner popup
+// Function to display winner popup
+function displayWinnerPopup(winner) {
+    const winnerAnnouncement = document.getElementById('winner-announcement');
+    const winnerTextElement = document.getElementById('winner-text');
+    
+    // Set the winner text
+    winnerTextElement.textContent = `${winner.toUpperCase()} WINS BY GAMJUMS!`;
+
+    // Set background color based on the winner
+    const backgroundColor = winner === 'red' ? 'red' : 'blue';
+    winnerAnnouncement.style.backgroundColor = backgroundColor;
+
+    // Show the winner announcement
+    winnerAnnouncement.style.display = 'flex';
+
+    // Stop the countdown
+    clearInterval(intervalId);
+}
+
+/////
+
+// Function to check the score difference and determine the winner or display score difference popup
+// function checkScoreDifference() {
+//     const scoreRed = parseInt(document.querySelector('.red-player-score').textContent) || 0;
+//     const scoreBlue = parseInt(document.querySelector('.blue-player-score').textContent) || 0;
+
+//     const winner = scoreRed > scoreBlue ? "red" : (scoreBlue > scoreRed ? "blue" : "tie");
+
+//     if (winner === "tie") {
+//         // Handle tie scenario
+//         // For example: Display a tie message or take any other action
+//     } else {
+//         // Declare the winner
+//         displayWinnerPopup(winner);
+//     }
+// }
+
+
+// Function to compare points and determine the winner at a specific time
+function checkScoreAtSpecificTime() {
+    const scoreRed = parseInt(document.querySelector('.red-player-score').textContent) || 0;
+    const scoreBlue = parseInt(document.querySelector('.blue-player-score').textContent) || 0;
+
+    if (initialTime === 61) { // Check if the timer is at 00:01 remaining
+        const winner = scoreRed > scoreBlue ? "red" : (scoreBlue > scoreRed ? "blue" : "tie");
+
+        if (winner === "tie") {
+            // Handle tie scenario
+            // For example: Display a tie message or take any other action
+            displayTiePopup(); // You need to implement this function
+        } else {
+            // Declare the winner
+            displayWinnerPopup(winner);
+        }
+    }
+}
+
+
+
+// Modify the updateCounter function to call checkScoreDifference
+// Function to update the timer counter
+// Function to update the timer counter
+// Define a variable to track whether the timer should be automatically paused
+let autoPauseTimer = false;
+
+// Function to update the timer counter
+// Function to reset the scores to 0
+function resetScores() {
+    document.querySelector('.red-player-score').textContent = 0;
+    document.querySelector('.blue-player-score').textContent = 0;
+}
+// Function to update the timer counter
+// Function to update the timer counter
+function updateCounter() {
+    const counterElement = document.getElementById('counter');
+
+    if (!paused || autoPauseTimer) {
+        const currentTime = Date.now();
+        const elapsedSeconds = Math.floor((currentTime - pausedAt) / 1000);
+        let remainingTime = initialTime - elapsedSeconds;
+
+        // Declare scoreRed and scoreBlue variables
+        let scoreRed, scoreBlue;
+
+        if (remainingTime <= 0) {
+            // Check if it's the end of rest time (1-minute phase)
+            if (initialTime === 60) {
+                // Switch to 2-minute phase (round two)
+                initialTime = 120;
+                pausedAt = Date.now();
+                intervalId = setInterval(updateCounter, 1000);
+                autoPauseTimer = true; // Pause the timer automatically
+                resetScores(); // Reset scores to 0
+            } else {
+                // Check score difference and declare winner when timer reaches 00:00
+                checkScoreDifference();
+            }
+        } else {
+            const minutes = Math.floor(remainingTime / 60);
+            const seconds = remainingTime % 60;
+
+            // Update the score at 00:01
+            if (minutes === 0 && seconds === 1) {
+                // Get the current scores
+                scoreRed = parseInt(document.querySelector('.red-player-score').textContent) || 0;
+                scoreBlue = parseInt(document.querySelector('.blue-player-score').textContent) || 0;
+
+                // Compare scores and declare winner
+                const winner = scoreRed > scoreBlue ? "red" : (scoreBlue > scoreRed ? "blue" : "tie");
+                scoreRed = parseInt(document.querySelector('.red-player-score').textContent) || 0;
+                scoreBlue = parseInt(document.querySelector('.blue-player-score').textContent) || 0;
+
+                // 
+                if (winner === "tie") {
+                    // Handle tie scenario
+                    // For example: Display a tie message or take any other action
+                } else {
+                    // Declare the winner
+                    displayWinnerPopup(winner);
+                }
+            }
+
+            // Apply styles based on initial time
+            if (initialTime === 120) {
+                counterElement.style.color = 'black';
+                counterElement.style.backgroundColor = 'yellow';
+            } else {
+                counterElement.style.color = 'white';
+                counterElement.style.backgroundColor = 'black';
+            }
+
+            const formattedTime = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+            counterElement.textContent = formattedTime;
+
+            // Pause the countdown when it reaches exactly 2:00 remaining time
+            if (minutes === 2 && seconds === 0 && autoPauseTimer) {
+                autoPauseTimer = false; // Reset auto pause flag
+                paused = true;
+                clearInterval(intervalId);
+                // Check score difference and declare winner when timer reaches 2:00
+                checkScoreDifference();
+            }
+        }
+    } else {
+        // Apply styles for paused state
+        counterElement.style.color = 'white';
+        counterElement.style.backgroundColor = 'black';
+    }
+}
+
+
+
+
+
+
+// function updateCounter() {
+//     const counterElement = document.getElementById('counter');
+
+//     if (!paused) {
+//         const currentTime = Date.now();
+//         const elapsedSeconds = Math.floor((currentTime - pausedAt) / 1000);
+//         let remainingTime = initialTime - elapsedSeconds;
+
+//         // Declare scoreRed and scoreBlue variables
+//         let scoreRed, scoreBlue;
+
+//         if (remainingTime <= 0) {
+//             // Check score difference and declare winner when timer reaches 00:00
+//             checkScoreDifference();
+//         } else {
+//             const minutes = Math.floor(remainingTime / 60);
+//             const seconds = remainingTime % 60;
+
+//             // Update the score at 00:01
+//             if (minutes === 0 && seconds === 1) {
+//                 // Get the current scores
+//                 scoreRed = parseInt(document.querySelector('.red-player-score').textContent) || 0;
+//                 scoreBlue = parseInt(document.querySelector('.blue-player-score').textContent) || 0;
+
+//                 // Compare scores and declare winner
+//                 const winner = scoreRed > scoreBlue ? "red" : (scoreBlue > scoreRed ? "blue" : "tie");
+
+//                 if (winner === "tie") {
+//                     // Handle tie scenario
+//                     // For example: Display a tie message or take any other action
+//                 } else {
+//                     // Declare the winner
+//                     displayWinnerPopup(winner);
+//                 }
+//             }
+
+//             // Apply styles based on initial time
+//             if (initialTime === 120) {
+//                 counterElement.style.color = 'black';
+//                 counterElement.style.backgroundColor = 'yellow';
+//             } else {
+//                 counterElement.style.color = 'white';
+//                 counterElement.style.backgroundColor = 'black';
+//             }
+
+//             const formattedTime = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+//             counterElement.textContent = formattedTime;
+
+//             // Pause the countdown when it reaches exactly 2:00 remaining time
+//             if (minutes === 2 && seconds === 0) {
+//                 paused = true;
+//                 clearInterval(intervalId);
+//                 // Check score difference and declare winner when timer reaches 2:00
+//                 checkScoreDifference();
+//             }
+//         }
+//     } else {
+//         // Apply styles for paused state
+//         counterElement.style.color = 'white';
+//         counterElement.style.backgroundColor = 'black';
+//     }
+// }
+
+
+// Function to increment the round number
+function incrementRound() {
+    const roundNumberElement = document.getElementById('roundNumber');
+    let currentRound = parseInt(roundNumberElement.textContent) || 1;
+    currentRound++;
+    roundNumberElement.textContent = currentRound;
+}
+
+// Function to display winner popup
+// Function to display winner popup
+// Function to display winner popup
+// Function to display winner popup
+// Function to display winner popup
+function displayWinnerPopup(winner) {
+    const winnerAnnouncement = document.getElementById('winner-announcement');
+    const winnerTextElement = document.getElementById('winner-text');
+
+    // Check if it's not the rest time phase (initialTime === 60)
+    if (initialTime !== 60) {
+        // Set the winner text
+        winnerTextElement.textContent = `${winner === "No one" ? "No one" : winner.toUpperCase()} wins the round!`;
+
+        // Set background color based on the winner
+        const backgroundColor = winner === 'red' ? 'red' : 'blue';
+        winnerAnnouncement.style.backgroundColor = backgroundColor;
+
+        // Show the winner announcement
+        winnerAnnouncement.style.display = 'flex';
+
+        // Stop the countdown
+        clearInterval(intervalId);
+
+        // Reset scores to 0/0
+        resetScores();
+
+        // Switch to 1-minute phase
+        initialTime = 60;
+        pausedAt = Date.now();
+        intervalId = setInterval(updateCounter, 1000);
+
+        // Increment the round number
+        incrementRound();
+    }
+}
+
+
+
+// Function to display score difference popup
+function displayScoreDifferencePopup(winner) {
+    const scoreDifferenceAnnouncement = document.getElementById('score-difference-announcement');
+    const scoreDifferenceTextElement = document.getElementById('score-difference-text');
+
+    // Set the score difference text
+    scoreDifferenceTextElement.textContent = `${winner.toUpperCase()} wins by 12 points difference!`;
+
+    // Set background color based on the winner
+    const backgroundColor = winner === 'red' ? 'red' : 'blue';
+    scoreDifferenceAnnouncement.style.backgroundColor = backgroundColor;
+
+    // Show the score difference announcement
+    scoreDifferenceAnnouncement.style.display = 'flex';
+
+    // Stop the countdown
+    clearInterval(intervalId);
+}
+
+// Function to close the winner popup
+function closeWinnerPopup() {
+    const winnerAnnouncement = document.getElementById('winner-announcement');
+    winnerAnnouncement.style.display = 'none';
+}
+
+// Function to close the score difference popup
+function closeScoreDifferencePopup() {
+    const scoreDifferenceAnnouncement = document.getElementById('score-difference-announcement');
+    scoreDifferenceAnnouncement.style.display = 'none';
+}
+
+// Function to manually pause the countdown
+// Define a variable to store the elapsed time when paused
+let elapsedTime = 0;
+
+// Function to manually pause the countdown
+// Function to manually pause the countdown
+function pauseCountdown() {
+    paused = true;
+    clearInterval(intervalId);
+    // Calculate the elapsed time since the timer started
+    elapsedTime = Date.now() - pausedAt;
+    // Reset the initial time to 2 minutes for round 2 and 3
+    initialTime = (currentRound > 1) ? 120 : 60;
+}
+
+// Function to manually resume the countdown
+function resumeCountdown() {
+    paused = false;
+    pausedAt = Date.now() - elapsedTime; // Set pausedAt to the current time minus elapsed time
+    intervalId = setInterval(updateCounter, 1000);
+}
+
+
+// Function to toggle the timer
+// Function to toggle the timer
+
+
+// Function to reset scores to 0/0
+
+
+// Function to update the timer counter
+
+// Add event listeners or perform other initialization tasks as needed
+
+</script>
+
+</script> 
+</body>
+
+</html>

@@ -1,0 +1,397 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: flex;
+    height: 830px;
+}
+
+.red {
+    width: 43%;
+    background-color: rgb(117, 4, 4);
+    
+    
+}
+
+.blue {
+    width: 45%;
+    background-color: rgb(2, 2, 49);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.black {
+    width: 11%;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 741px;
+}
+
+.cn {
+    background-color: yellow;
+    text-align: center;
+    margin-top: 15px;
+    width: 100%;
+    height: 80px;
+    position: relative;
+    cursor: pointer;
+}
+
+#counter {
+    color: black;
+    font-size: 3em;
+    font-weight: bold;
+}
+
+#seconds-buttons {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#seconds-buttons .button {
+    padding: 10px;
+    font-size: 1.5em;
+    cursor: pointer;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin: 0 5px;
+    background-color: #333;
+}
+
+.match {
+    color: aliceblue;
+    font-size: 2.6em;
+}
+
+.round {
+    font-size: 1.6rem;
+    font-family: 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+    color: white;
+}
+
+.Mnumber {
+    color: white;
+    font-size: 40px;
+}
+
+.red-player,
+.blue-player-score {
+    margin-top: 149px;
+    width: 380px;
+/* rah hadi li lteht b l vh  */
+    height: 392px;  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(3, 3, 125);
+    margin-left: 0px;
+    font-size: 10em;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: white;
+}
+
+.red-player-score {
+    background-color: rgb(196, 5, 5);
+    width: 400px;
+    
+    width: 580px;
+    height: 392px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10em;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: white;
+}
+
+.colors {
+    display: flex;
+}
+
+.ahmarani {
+    width: 50%;
+    background-color: rgb(117, 4, 4);
+    height: 169px;
+}
+
+.azra9ani {
+    height: 169px;
+    width: 50%;
+    background-color: rgb(2, 2, 49);
+}
+
+.gamjumBlue {
+    margin-left: 140px;
+   
+    font-size: 1.5em;
+}
+
+.gamjumRed {
+    margin-left: 400px;
+  
+    font-size: 1.5em;
+}
+
+.gamScoreRED {
+    margin-left: 450px;
+    margin-top: 8px;
+    font-size: 3em;
+    color: white;
+}
+
+.gamScoreRed {
+    margin-top: 8px;
+    font-size: 3em;
+    margin-left: 220px;
+    color: white;
+}
+.gamScoreRED2{
+    margin-top: 8px;
+    font-size: 3em;
+    margin-left: 185px;
+    color: white;
+}
+
+/* New styles for buttons */
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.button {
+    padding: 10px;
+    font-size: 2em;
+    cursor: pointer;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+.button2{
+    padding: 10px;
+    font-size: 2em;
+    cursor: pointer;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+.button:hover {
+    background-color: #555;
+}
+
+.button-gamjum {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 430px;
+}
+
+.button2 {
+    color: white;
+}
+
+.buttonn:hover {
+    background-color: #555;
+}
+
+.buttonn {
+    display: flex;
+    font-size: 2em;
+    cursor: pointer;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-left: 20px;
+    padding: 10px;
+    font-size: 2em;
+    cursor: pointer;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.button-gamjumRedd {
+    display: flex;
+    margin-left: 175px;
+}
+
+.buttons {
+    /* background-color: green; */
+}
+
+.btn {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: transparent;
+    text-align: center;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-size: 19px;
+    line-height: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btnround {
+    margin-top: 5px;
+    font-size: 2em;
+    cursor: pointer;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-left: 10px;
+    background-color: black;
+}
+
+/* css for the buttons and controlling the blue side */
+.fbtn {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: transparent;
+    text-align: center;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-size: 19px;
+    line-height: 50px;
+    /* cursor: pointer; */
+    /* transition: background-color 0.3s ease; */
+}
+.ssbtn{
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: transparent;
+    text-align: center;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-size: 19px;
+    line-height: 50px;
+}
+
+.container {
+    display: flex;
+}
+
+.first-buttons {
+    margin-top: 130px;
+    padding-left: 110px;
+}
+
+.whichDiv {
+    margin-bottom: 19px;
+    font-size: 32px;
+}
+.button-gamjum2{
+    display: flex;
+   
+    margin-left: 150px;
+}
+.flagred{
+    margin-left: 100px;
+    margin-top: 30px;
+}
+.flagredblue{
+margin-left: 300px;
+}
+
+#winner-announcement {
+display: none;
+position: fixed;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+width: 170vh; /* Set the width to 90% of the viewport width */
+height: 90vh; /* Set the height to 90% of the viewport height */
+max-width: 1800px; /* Set a maximum width for better readability */
+max-height: 1600px; /* Set a maximum height for better readability */
+text-align: center;
+background-color: rgba(0, 0, 0, 0.7);
+z-index: 999;
+padding: 20px;
+box-sizing: border-box; /* Include padding in the width calculation */
+text-align: center;
+}
+
+#winner-text {
+color: white;
+font-size: 7em;
+text-align: center;
+}
+
+
+.button911 {
+padding-top: 8;
+width: 70px;
+height: 70px;
+border: 2px solid black;
+border-radius: 50%; /* Makes the button circular */
+background-color: transparent;
+color: rgb(255, 241, 241);
+font-size: 16px;
+cursor: pointer;
+}
+
+/* .button-container {
+text-align: center;
+margin-top: 20px;
+} */
+
+#cancel-icon {
+position: absolute;
+top: 10px;
+right: 10px;
+cursor: pointer;
+}
+
+#cancel-icon i {
+color: white;
+font-size: 24px;
+}
+.button911:hover {
+background-color: rgba(255, 255, 255, 0.2); /* Light gray with some transparency on hover */
+}
+
+/* Additional styles for better aesthetics */
+
+
+/* Additional styles for better aesthetics */
+
+
+.popup {
+display: none;
+position: fixed;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+background-color: white;
+padding: 20px;
+border: 2px solid black;
+}
+
+.popup-content {
+text-align: center;
+}
+
+.popup-content span {
+font-size: 20px;
+font-weight: bold;
+}
